@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Makky Services - Clean, Direct & Animated Modern Design
+   Makky Services - Clean, Creative & Animated Modern Design
    Brand: Repair • Fix • Solve | "We offer fair prices and trusted service."
    ========================================================================== */
 
@@ -14,8 +14,6 @@
   --text-muted: #94a3b8;
   
   --border: #e2e8f0;
-  --border-dark: #334155;
-  
   --primary: #0f172a;
   --primary-hover: #1e293b;
   --accent: #2563eb;
@@ -234,11 +232,11 @@ a {
 }
 
 /* ==========================================================================
-   ANIMATED HARDWARE ILLUSTRATIONS (Cellphone, Printer, Laptop)
+   ANIMATED HARDWARE (Cellphone, Printer, Laptop, Clean Xerox Machine)
    ========================================================================== */
 .anim-card-icon {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 95px;
   margin: 0 auto 1.25rem;
   display: flex;
   align-items: center;
@@ -291,13 +289,13 @@ a {
   left: 0;
   right: 0;
   height: 3px;
-  background: rgba(15, 23, 42, 0.4);
-  box-shadow: 0 0 6px rgba(15, 23, 42, 0.5);
-  animation: scanLine 2.2s linear infinite;
+  background: #0284c7;
+  box-shadow: 0 0 6px rgba(2, 132, 199, 0.8);
+  animation: scanLine 2s linear infinite;
 }
 
 .anim-phone-tool {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--primary);
   animation: toolPulse 2s ease-in-out infinite;
 }
@@ -309,8 +307,8 @@ a {
 
 @keyframes scanLine {
   0% { top: 0%; opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
   100% { top: 100%; opacity: 0; }
 }
 
@@ -487,6 +485,139 @@ a {
   100% { width: 90%; }
 }
 
+/* 4. CLEAN ANIMATED XEROX / PHOTOCOPY MACHINE */
+.anim-xerox-box {
+  width: 88px;
+  height: 78px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.xerox-lid-feeder {
+  width: 60px;
+  height: 14px;
+  background: #ffffff;
+  border: 2px solid var(--primary);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  z-index: 3;
+}
+
+.xerox-feed-doc {
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  width: 32px;
+  height: 12px;
+  background: #ffffff;
+  border: 1.5px solid var(--primary);
+  border-bottom: none;
+  animation: xeroxDocIn 3s ease-in-out infinite;
+}
+
+.xerox-scanner-glass {
+  width: 76px;
+  height: 20px;
+  background: #e2e8f0;
+  border: 2px solid var(--primary);
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.xerox-laser-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: #06b6d4;
+  box-shadow: 0 0 12px #06b6d4, 0 0 4px #ffffff;
+  animation: xeroxLaserSweep 2s ease-in-out infinite alternate;
+}
+
+.xerox-main-body {
+  width: 84px;
+  height: 38px;
+  background: #ffffff;
+  border: 3px solid var(--primary);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.xerox-buttons {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.xerox-led-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #10b981;
+  animation: ledBlink 1.4s infinite;
+}
+
+.xerox-btn-green {
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background: #10b981;
+}
+
+.xerox-tray-copy {
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+  width: 36px;
+  height: 20px;
+  background: #ffffff;
+  border: 1.5px solid var(--primary);
+  border-radius: 2px;
+  animation: xeroxCopySlide 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.xerox-tray-copy::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  right: 4px;
+  height: 1.5px;
+  background: #64748b;
+  box-shadow: 0 3px 0 #64748b, 0 6px 0 #64748b;
+}
+
+@keyframes xeroxLaserSweep {
+  0% { left: -8px; opacity: 0.3; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 74px; opacity: 0.3; }
+}
+
+@keyframes xeroxDocIn {
+  0% { transform: translateY(0); opacity: 1; }
+  40% { transform: translateY(6px); opacity: 0.4; }
+  50% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes xeroxCopySlide {
+  0% { transform: translateY(-8px) scale(0.9); opacity: 0; }
+  35% { transform: translateY(0) scale(1); opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(4px); opacity: 0; }
+}
+
 /* Hero Section */
 .hero-section {
   padding: 4.5rem 0 3.5rem;
@@ -537,7 +668,7 @@ a {
   color: var(--text-main);
 }
 
-/* 3 Main Pillars Section (Direct to the point) */
+/* 3 Main Pillars Section */
 .pillars-section {
   padding: 4.5rem 0;
 }
@@ -681,7 +812,9 @@ a {
   color: var(--text-main);
 }
 
-/* Interactive Polaid Studio (Direct & Simple) */
+/* ==========================================================================
+   CREATIVE POLAROID STUDIO
+   ========================================================================== */
 .polaid-section {
   padding: 4.5rem 0;
 }
@@ -704,20 +837,52 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+/* Creative Polaroid Frame with Washi Tape & Drop Shadow */
+.polaroid-holder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.polaroid-holder:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.washi-tape {
+  width: 70px;
+  height: 18px;
+  background: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: -9px;
+  z-index: 10;
+  transform: rotate(-2deg);
+  border-left: 2px dashed rgba(255, 255, 255, 0.6);
+  border-right: 2px dashed rgba(255, 255, 255, 0.6);
 }
 
 .polaid-frame {
-  width: 230px;
+  width: 240px;
   background: #ffffff;
-  border: 1px solid #cbd5e1;
   border-radius: 4px;
   padding: 12px 12px 18px 12px;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
   text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  transform: rotate(-1deg);
 }
 
-.polaid-frame.theme-black { background: #1e293b; color: #fff; }
-.polaid-frame.theme-vintage { background: #fdf6e2; color: #3f2e18; }
+/* Creative Polaroid Styles */
+.polaid-frame.theme-white { background: #ffffff; color: #0f172a; border: 1px solid #e2e8f0; }
+.polaid-frame.theme-black { background: #0f172a; color: #ffffff; border: 1px solid #334155; }
+.polaid-frame.theme-vintage { background: #fdf6e2; color: #451a03; border: 1px solid #fef3c7; }
+.polaid-frame.theme-pastel { background: #fdf2f8; color: #831843; border: 1px solid #fbcfe8; }
+.polaid-frame.theme-sky { background: #f0f9ff; color: #075985; border: 1px solid #bae6fd; }
 
 .polaid-photo {
   width: 100%;
@@ -728,6 +893,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .polaid-frame.ratio-mini .polaid-photo { aspect-ratio: 3 / 4; }
@@ -738,16 +904,18 @@ a {
   height: 100%;
   object-fit: cover;
   display: none;
+  transition: filter 0.25s ease;
 }
 
 .polaid-photo .placeholder {
   color: var(--text-muted);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
+  text-align: center;
 }
 
 .polaid-caption-text {
   font-family: var(--font-hand);
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   margin-top: 10px;
   font-weight: 700;
   line-height: 1.2;
@@ -834,8 +1002,9 @@ a {
 /* Filter classes */
 .filter-none { filter: none; }
 .filter-bw { filter: grayscale(100%); }
-.filter-sepia { filter: sepia(70%); }
-.filter-vintage { filter: contrast(110%) sepia(30%); }
+.filter-sepia { filter: sepia(75%); }
+.filter-vintage { filter: contrast(110%) sepia(35%); }
+.filter-vivid { filter: saturate(140%) contrast(110%); }
 
 /* Location & Map */
 .map-section {

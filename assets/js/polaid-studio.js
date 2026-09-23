@@ -1,15 +1,15 @@
 /**
- * Makky Services - Interactive Polaid (Polaroid) Studio
+ * Makky Services - Creative Polaroid Studio
  */
 
-const PolaidStudio = {
+const PolaroidStudio = {
   state: {
     photoUrl: null,
-    frameTheme: 'white',   // 'white', 'black', 'vintage', 'film'
+    frameTheme: 'white',   // 'white', 'black', 'vintage', 'pastel', 'sky'
     ratio: 'square',       // 'mini', 'square', 'wide'
-    filter: 'none',        // 'none', 'bw', 'sepia', 'vintage'
+    filter: 'none',        // 'none', 'bw', 'sepia', 'vintage', 'vivid'
     caption: 'Best Memories',
-    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+    date: new Date().getFullYear().toString(),
     packCount: 20,
     price: 140
   },
@@ -38,12 +38,11 @@ const PolaidStudio = {
       fileInput: document.getElementById('polaidFileInput'),
       dropZone: document.getElementById('polaidDropZone'),
       captionInput: document.getElementById('polaidCaptionInput'),
-      dateInput: document.getElementById('polaidDateInput'),
       
       themeBtns: document.querySelectorAll('[data-theme]'),
       ratioBtns: document.querySelectorAll('[data-ratio]'),
       filterBtns: document.querySelectorAll('[data-filter]'),
-      packCards: document.querySelectorAll('.pack-card'),
+      packCards: document.querySelectorAll('.pack-btn'),
       
       totalPriceDisplay: document.getElementById('polaidTotalPrice'),
       summaryQtyDisplay: document.getElementById('polaidSummaryQty'),
@@ -86,14 +85,6 @@ const PolaidStudio = {
     if (this.dom.captionInput) {
       this.dom.captionInput.addEventListener('input', (e) => {
         this.state.caption = e.target.value.trim() || 'Your Caption Here';
-        this.render();
-      });
-    }
-
-    // Date Input
-    if (this.dom.dateInput) {
-      this.dom.dateInput.addEventListener('input', (e) => {
-        this.state.date = e.target.value.trim();
         this.render();
       });
     }
@@ -167,13 +158,13 @@ const PolaidStudio = {
     if (!this.dom.frameWrapper) return;
 
     // Update classes on frame
-    this.dom.frameWrapper.className = `polaid-frame-wrapper theme-${this.state.frameTheme} ratio-${this.state.ratio}`;
+    this.dom.frameWrapper.className = `polaid-frame theme-${this.state.frameTheme} ratio-${this.state.ratio}`;
 
     // Update image
     if (this.state.photoUrl) {
       this.dom.previewImg.src = this.state.photoUrl;
       this.dom.previewImg.style.display = 'block';
-      this.dom.previewImg.className = `polaid-preview-img filter-${this.state.filter}`;
+      this.dom.previewImg.className = `filter-${this.state.filter}`;
       if (this.dom.placeholder) this.dom.placeholder.style.display = 'none';
     } else {
       this.dom.previewImg.style.display = 'none';
@@ -202,19 +193,20 @@ const PolaidStudio = {
       white: 'Classic White Border',
       black: 'Midnight Black Border',
       vintage: 'Vintage Cream Border',
-      film: 'Retro Film Border'
+      pastel: 'Pastel Pink Border',
+      sky: 'Sky Breeze Border'
     };
 
     const ratioNames = {
       mini: 'Instax Mini (2R)',
-      square: 'Square Classic (3×3 in)',
+      square: 'Square Classic (3×3")',
       wide: 'Wide Polaroid (3R)'
     };
 
     const item = {
-      id: 'polaid_' + Date.now(),
-      type: 'Polaids Printing',
-      title: `Polaids Prints (${this.state.packCount}-Pack)`,
+      id: 'polaroid_' + Date.now(),
+      type: 'Polaroid Printing',
+      title: `Polaroid Prints (${this.state.packCount}-Pack)`,
       details: `${ratioNames[this.state.ratio]} • ${themeNames[this.state.frameTheme]} • Caption: "${this.state.caption}"`,
       quantity: 1,
       unitPrice: this.state.price,
@@ -228,5 +220,5 @@ const PolaidStudio = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  PolaidStudio.init();
+  PolaroidStudio.init();
 });
